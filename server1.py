@@ -19,7 +19,7 @@ except socket.error, msg:
 
 print 'Socket bind complete.'
 
-currACK = 0
+currACK = 1
 
 while 1:
     # receive data from the client (data, addr)
