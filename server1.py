@@ -30,12 +30,14 @@ while 1:
     if not data:
         break
     
-    if currACK == 0:
-        reply = 'ACK0: OK...' + data
-        currACK = 1
-    else:
-        reply = 'ACK1: OK...' + data
-        currACK = 0
+    reply = 'ACK' + str(currACK) + ': ' + data
+    currACK += 1
+    # if currACK == 0:
+    #     reply = 'ACK0: OK...' + data
+    #     currACK = 1
+    # else:
+    #     reply = 'ACK1: OK...' + data
+    #     currACK = 0
         
     s.sendto(reply, addr)
     print 'Message[' + addr[0] + ':' + str(addr[1]) + '] - ' + data.strip()
