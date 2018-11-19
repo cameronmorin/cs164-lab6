@@ -34,6 +34,7 @@ while(1) :
 			# checksum = ip_checksum(msg)
 			try:
 				s.sendto(msg, (host, port))
+				print('Sending packet: ' + str(i + 1))
 				num += 1
 				if i == 0:		#Set timeout on first packet sent
 					s.settimeout(10)
@@ -54,8 +55,11 @@ while(1) :
 			if currLeft <= len(packets) - window:
 				#Window does not move
 				msg = packets[currLeft + window - 1]
+			else:
+				print(currLeft)
 			if num < 8:
 				s.sendto(msg, (host, port))
+				print(msg)
 				num += 1
 		except socket.timeout:
 			print 'Timeout occurred. Resending all packets in window.'
