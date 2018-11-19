@@ -30,7 +30,7 @@ while 1:
     if not data:
         break
     
-    reply = 'ACK' + str(currACK) + ': ' + data
+    reply = 'ACK: ' + data
     currACK += 1
     # if currACK == 0:
     #     reply = 'ACK0: OK...' + data
@@ -38,8 +38,11 @@ while 1:
     # else:
     #     reply = 'ACK1: OK...' + data
     #     currACK = 0
-        
-    s.sendto(reply, addr)
-    print 'Message[' + addr[0] + ':' + str(addr[1]) + '] - ' + data.strip()
+    if currACK == 3:
+        # Packet loss
+        currACK += 0    #Used to preserve indentation
+    else:
+        s.sendto(reply, addr)
+        print 'Message[' + addr[0] + ':' + str(addr[1]) + '] - ' + data.strip()
 
 s.close()
