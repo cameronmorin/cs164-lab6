@@ -67,27 +67,5 @@ while(1) :
 			for i in range(currLeft, window):
 				msg = packets[i]
 			# FIXME resend all packets in current window
-
-	# packet = currACK % 4
-	# if currACK == 1:
-	# 	checksum = 'hi'
-	# else:
-	# 	checksum = ip_checksum(msg)
-	# currACK += 1
-
-	# try :
-	# 	#Set the whole string
-	# 	s.sendto(msg, (host, port))
-	# 	s.settimeout(10)
-	# 	try:
-	# 		# receive data from client (data, addr)
-	# 		d = s.recvfrom(1024)
-	# 		reply = d[0]
-	# 		addr = d[1]
-	# 	except socket.timeout:
-	# 		checksum = ip_checksum(msg)
-	# 	print 'Server reply : ' + reply
-	
-	# except socket.error, msg:
-	# 	print 'Error Code : ' + str(msg[0]) + ' Message ' + msg[1]
-	# 	sys.exit()
+	else:
+		break
